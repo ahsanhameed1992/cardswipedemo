@@ -5,10 +5,26 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-
+ 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<div swing-stack #myswing1 [stackConfig]="stackConfig" (throwoutleft)="voteUp(true)" (throwoutright)="voteUp(false)" id="card-stack">
+    <ion-card #mycards1 swing-card *ngFor="let c of cards">
+     
+      <ion-card-content *ngIf="c.name">
+      
+        NAme: {{ c.name }}
+      </ion-card-content>
+
+     
+    </ion-card>
+
+  </div>
+ <ion-row>
+        <ion-col id="home-buttons">
+        <button ion-button color="danger" (click)="voteUp(true)">PASS</button>
+        </ion-col>
+        <ion-col id="home-buttons">
+          <button ion-button color="secondary" (click)="voteUp(false)">MEET</button>
+        </ion-col>
+      </ion-row>
 </ion-content>
